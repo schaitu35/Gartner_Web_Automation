@@ -18,10 +18,25 @@ public class TestBase {
     public WebDriver webDriver;
     public WebDriverWait webDriverWait;
     private static Properties properties;
+    private String userName;
+    private String password;
 
+
+    public void intializeGlobalVariables(){
+        System.getProperty("userName");
+        if(null == userName)
+          properties.getProperty("");
+
+        System.getProperty("userName");
+        if(null == "password")
+            properties.getProperty("password");
+
+    }
 
     public WebDriver setUp() {
-        LOGGER.info("Current Method :: SetUp");
+        String MethodName = new Object() {}.getClass().getEnclosingMethod().getName();
+        LOGGER.info("Current Method :: " + MethodName);
+
         properties = loadProperties("config.properties", properties);
         String browser = properties.getProperty("browser");
 
@@ -50,6 +65,9 @@ public class TestBase {
 
             }
         }
+        webDriver.manage().deleteAllCookies();
+        webDriver.manage().window().maximize();
+        webDriver.get(properties.getProperty("url"));
 
         return webDriver;
     }

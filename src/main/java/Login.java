@@ -1,4 +1,5 @@
 import org.apache.log4j.Logger;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class Login extends TestBase {
@@ -12,6 +13,12 @@ public class Login extends TestBase {
         System.out.println("Test");
     }
 
+    @AfterClass
+    public void TearDown(){
+        webDriver.close();
+        webDriver.quit();
+
+    }
 
 
 }
