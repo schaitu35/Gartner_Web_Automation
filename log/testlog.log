@@ -1,1 +1,12 @@
-2021-01-15 11:34:42,044 - TestBase -INFO - Current Method :: setUp
+2021-01-23 20:07:15,756 com.hupspot.automation.tests.base.TestBase.setUp(TestBase.java:30): Current Method :: setUpsg
+2021-01-23 20:11:09,856 com.hupspot.automation.tests.Utils.SelinumUtils.click(SelinumUtils.java:89): Current Method :: clicksg
+2021-01-23 20:11:57,768 com.hupspot.automation.tests.Utils.SelinumUtils.getElement(SelinumUtils.java:61): Current Method :: getElementsg
+2021-01-23 20:44:04,659 com.hupspot.automation.tests.Utils.SelinumUtils.click(SelinumUtils.java:89): Current Method :: clicksg
+2021-01-23 20:44:04,660 com.hupspot.automation.tests.Utils.SelinumUtils.getElement(SelinumUtils.java:61): Current Method :: getElementsg
+2021-01-23 20:44:19,808 com.hupspot.automation.tests.Utils.SelinumUtils.click(SelinumUtils.java:98): Couldn't find locator :://*[@id="launcher-close-icon"] in 15000sg
+2021-01-23 20:44:19,817 com.hupspot.automation.tests.HomePage.HomePageTest.TC_01_verify_pageTitle(HomePageTest.java:29):  Test case executing is :: TC_01_verify_pageTitlesg
+2021-01-23 20:44:19,824 com.hupspot.automation.tests.HomePage.HomePageTest.TC_01_verify_pageTitle(HomePageTest.java:32):  Actual Title :: HubSpot | Inbound Marketing, Sales, and Service Softwaresg
+2021-01-23 20:44:19,824 com.hupspot.automation.tests.HomePage.HomePageTest.TC_01_verify_pageTitle(HomePageTest.java:33):  Expected Title :: HubSpot | Inbound Marketing, Sales, and Service Softwaresg
+2021-01-23 20:44:51,277 com.hupspot.automation.tests.Utils.SelinumUtils.getElement(SelinumUtils.java:61): Current Method :: getElementsg
+2021-01-23 20:45:13,019 com.hupspot.automation.tests.Utils.SelinumUtils.mouseOverToElement(SelinumUtils.java:184): Current Method :: mouseOverToElementsg
+2021-01-23 20:45:13,026 com.hupspot.automation.tests.Utils.SelinumUtils.getElement(SelinumUtils.java:61): Current Method :: getElementsg
