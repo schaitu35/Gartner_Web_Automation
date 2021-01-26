@@ -5,12 +5,11 @@ import com.hupspot.automation.tests.Utils.SelinumUtils;
 import com.hupspot.automation.tests.base.TestBase;
 import com.hupspot.automation.tests.constants.HomepageConstants;
 import com.hupspot.automation.tests.constants.LocatorType;
+import com.hupspot.automation.tests.constants.LoginPageConstants;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class HomePageTest extends TestBase {
 
@@ -45,31 +44,27 @@ public class HomePageTest extends TestBase {
     }
 
     @Test
-    public void TC_03_verify_Locale_Dropdown(){
+    public void TC_03_verify_tabs_in_homePage() {
 
-        SelinumUtils.mouseOverToElement(webDriver,HomepageConstants.locale_dropDown,LocatorType.XPATH);
-        List<String> elements = SelinumUtils.getMultipleElementsText(webDriver,HomepageConstants.getLocale_dropDown,LocatorType.XPATH);
-        for (String element: elements) {
+        String inSightsText = SelinumUtils.getElementText(webDriver, HomepageConstants.inSightsText,LocatorType.XPATH);
+        String solutionsText = SelinumUtils.getElementText(webDriver, HomepageConstants.solutionsText,LocatorType.XPATH);
+        String whatWeDoText = SelinumUtils.getElementText(webDriver, HomepageConstants.whatWeDoText,LocatorType.XPATH);
 
-            LOGGER.info(" " + element);
-        }
-        if(elements.size() != 6){
-            ScreenShot.assertFalseWithScreenShot(webDriver);
-        }
-    }
-
-    @Test
-    public void TC_04_verify_tabs_in_homePage() {
-
-        String software = SelinumUtils.getElementText(webDriver, HomepageConstants.softwareText,LocatorType.XPATH);
-        String pricing = SelinumUtils.getElementText(webDriver, HomepageConstants.pricingText,LocatorType.XPATH);
-        String resources = SelinumUtils.getElementText(webDriver, HomepageConstants.resourcesText,LocatorType.XPATH);
-
-        if(! (software.equals("Software") && pricing.equals("Pricing") && resources.equals("Resources") ) ){
+        if(! (inSightsText.equals("Insights") && solutionsText.equals("Solutions") && whatWeDoText.equals("What We Do") ) ){
 
             LOGGER.info("Home Tabs not verified..!! Please check  the screenshot");
             ScreenShot.assertFalseWithScreenShot(webDriver);
 
+        }
+
+    }
+
+    @Test
+    public void TC_04_verifyLoginPageLink() throws InterruptedException {
+        SelinumUtils.click(webDriver,HomepageConstants.LoginPageLink, LocatorType.XPATH);
+        if(! SelinumUtils.isElementDispayed(webDriver, LoginPageConstants.emailAddressField, LocatorType.ID) ){
+            LOGGER.info("LoginPage not verified..!! Please check  the screenshot");
+            ScreenShot.assertFalseWithScreenShot(webDriver);
         }
 
     }

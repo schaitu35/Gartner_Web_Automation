@@ -3,9 +3,8 @@ package com.hupspot.automation.tests.constants;
 public interface AppConst {
 
      String browser = "Chrome";
-     String URL = "https://www.hubspot.com/";
-     String userName = "";
-     String passWord = "";
+     String URL = "https://www.gartner.com/en";
+
 
 
     long timeout = 15000;

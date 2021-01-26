@@ -1,9 +1,6 @@
 package com.hupspot.automation.tests.base;
 
-import com.hupspot.automation.tests.Utils.SelinumUtils;
 import com.hupspot.automation.tests.constants.AppConst;
-import com.hupspot.automation.tests.constants.HomepageConstants;
-import com.hupspot.automation.tests.constants.LocatorType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -36,8 +32,7 @@ public class TestBase {
 
                 case "Chrome":
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions chromeOptions = setDesiredChromeOptions();
-                    webDriver = new ChromeDriver(chromeOptions);
+                    webDriver = new ChromeDriver(setDesiredChromeOptions());
                     break;
 
                 case "Firefox":
@@ -64,24 +59,17 @@ public class TestBase {
         webDriver.get(AppConst.URL);
         webDriverWait = new WebDriverWait(webDriver,TimeUnit.MILLISECONDS.toSeconds(AppConst.timeout));
 
-        SelinumUtils.click(webDriver, HomepageConstants.cookie_decline_button, LocatorType.XPATH, AppConst.timeout,AppConst.polling_frequency );
-        SelinumUtils.click(webDriver, HomepageConstants.chatBot_Cancel, LocatorType.XPATH);
 
         return webDriver;
     }
 
 
     private ChromeOptions setDesiredChromeOptions() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--start-maximized");
-        chromeOptions.addArguments("--ignore-certificate-errors");
-        chromeOptions.addArguments("--disable-popup-blocking");
-        chromeOptions.addArguments("--disable-infobars");
-        chromeOptions.addArguments("--disable-notifications");
-        Map prefs = new HashMap();
-        prefs.put("profile.default_content_settings.cookies", 2);
-        chromeOptions.setExperimentalOption("prefs", prefs);
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+        options.setExperimentalOption("useAutomationExtension", false);
+//        options.addArguments("--incognito", "--disable-blink-features=AutomationControlled");
 
-        return chromeOptions;
+        return options;
     }
 }
