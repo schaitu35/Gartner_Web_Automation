@@ -7,6 +7,10 @@ public interface HomepageConstants {
     String locale_dropDown = "//div[@id='nav-main-link']/a/span[1]";
     String cookie_decline_button = "//*[@id=\"hs-eu-decline-button\"]";
     String chatBot_Cancel = "//*[@id=\"launcher-close-icon\"]";
-    String getLocale_dropDown = "//nav[@class='hsg-nav-bar hsg-nav-top-bar']//div[@id='nav-main-link']/../ul/li/a[@class='hsg-nav__dropdown-country-link']";
-    String gohkkdf = "google";
+    String getLocale_dropDown = "//nav[@class='hsg-nav-bar hsg-nav-top-bar']//li[@class='hsg-nav__group-item hsg-nav__group-item--has-dropdown']//ul[@class='hsg-nav__dropdown-list']/li/a";
+    String softwareText = "//span[normalize-space()='Software']";
+    String pricingText = "//span[normalize-space()='Pricing']";
+    String resourcesText = "//span[normalize-space()='Resources']";
+
+
 }

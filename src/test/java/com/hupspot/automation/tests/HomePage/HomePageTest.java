@@ -56,7 +56,22 @@ public class HomePageTest extends TestBase {
         if(elements.size() != 6){
             ScreenShot.assertFalseWithScreenShot(webDriver);
         }
-
-        SelinumUtils.selectFromDropdownByIndex(webDriver,"","",2,200,300);
     }
+
+    @Test
+    public void TC_04_verify_tabs_in_homePage() {
+
+        String software = SelinumUtils.getElementText(webDriver, HomepageConstants.softwareText,LocatorType.XPATH);
+        String pricing = SelinumUtils.getElementText(webDriver, HomepageConstants.pricingText,LocatorType.XPATH);
+        String resources = SelinumUtils.getElementText(webDriver, HomepageConstants.resourcesText,LocatorType.XPATH);
+
+        if(! (software.equals("Software") && pricing.equals("Pricing") && resources.equals("Resources") ) ){
+
+            LOGGER.info("Home Tabs not verified..!! Please check  the screenshot");
+            ScreenShot.assertFalseWithScreenShot(webDriver);
+
+        }
+
+    }
+
 }

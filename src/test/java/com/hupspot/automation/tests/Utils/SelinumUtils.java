@@ -129,12 +129,10 @@ public class SelinumUtils {
 
         List<String> elementText = new ArrayList<>();
 
-        if(!elementText.isEmpty()){
 
             for (WebElement element: webElements) {
                 elementText.add(element.getText());
             }
-        }
 
         return elementText;
     }
